@@ -1,19 +1,27 @@
-import  {Sequelize}  from 'sequelize';
-import getConfiguration from './configVariables/configVariables';
+import { Sequelize } from "sequelize";
+import getConfiguration from "./config/configVariables";
 
-const {databaseName, databaseUser, databasePassword, databaseHost,databaseDialect,databasePort} = getConfiguration();
+const {
+  databaseName,
+  databaseUser,
+  databasePassword,
+  databaseHost,
+  databaseDialect,
+  databasePort,
+} = getConfiguration();
 
 /**
  * Create a new instance for the database connection.
  */
-// const sequelizeClient = new Sequelize(databaseName, databaseUser, databasePassword, {
-//   host: databaseHost,
-//   dialect: 'mysql',
-// });
+let sequelizeConnection: null | Sequelize = null;
 
+const sequelizeClient = () => {
+  if (null === sequelizeConnection) {
+    sequelizeConnection = new Sequelize(
+      `${databaseDialect}://${databaseUser}:${databasePassword}@${databaseHost}:${databasePort}/${databaseName}`
+    );
+  }
+  return sequelizeConnection;
+};
 
-const sequelizeConecction = new Sequelize(`${databaseDialect}://${databaseUser}:${databasePassword}@${databaseHost}:${databasePort}/${databaseName}`);
-
- 
-
-export default sequelizeConecction;
+export default sequelizeClient;

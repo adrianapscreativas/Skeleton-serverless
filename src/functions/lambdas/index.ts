@@ -1,13 +1,14 @@
 import { handlerPath } from '@libs/handler-resolver';
 
-export default {
-  handler: `${handlerPath(__dirname)}/handler.main`,
+export const createTodo= {
+  handler: `${handlerPath(__dirname)}/todo.lambdas.create`,
   events: [
     {
       http: {
         method: 'post',
-        path: 'create-user',
+        path: 'create-todo',
       },
     },
   ],
 };
+

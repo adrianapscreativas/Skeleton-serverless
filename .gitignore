@@ -1,0 +1,10 @@
+# package directories
+
+node_modules
+jspm_package
+
+#Serverless directories
+.serverless
+
+# esbuild directoires
+.esbuild
