@@ -1,7 +1,7 @@
 import type { AWS } from '@serverless/typescript';
 
 // import hello from '@functions/hello';
-import { createTodo } from '@functions/index';
+import { createTodo,getTodo } from '@functions/index';
 
 const serverlessConfiguration: AWS = {
   service: 'aws-serverless-typescript-api',
@@ -28,7 +28,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { createTodo},
+  functions: { createTodo,getTodo},
   package: { individually: true },
   custom: {
     esbuild: {
@@ -43,27 +43,27 @@ const serverlessConfiguration: AWS = {
     },
     stages:['dev','prod'],
      databaseUser: {
-      dev: '',
+      dev: 'erp_admin',
       prod:''
      },
      databasePassword: {
-      dev: '',
+      dev: '3rp_s3rv3rl3ss',
       prod: '',
      },
      databaseName: {
-      dev: '',
+      dev: 'erp_database',
       prod:''
      },
      databasePort: {
-      dev: '',
+      dev: '3306',
       prod: ''
      },
      databaseHost:{
-      dev:'',
+      dev:'saperp.ckt3grwu03hi.us-east-2.rds.amazonaws.com',
       prod:''
      },
      databaseDialect:{
-      dev:'',
+      dev:'mysql',
       prod:''
      }
 

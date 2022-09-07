@@ -1,7 +1,6 @@
 import { handlerPath } from '@libs/handler-resolver';
-
 export const createTodo= {
-  handler: `${handlerPath(__dirname)}/todo.lambdas.create`,
+  handler: `${handlerPath(__dirname)}/create.main`,
   events: [
     {
       http: {
@@ -12,3 +11,14 @@ export const createTodo= {
   ],
 };
 
+export const getTodo={
+  handler: `${handlerPath(__dirname)}/get.main`,
+  events: [
+    {
+      http: {
+        method: 'get',
+        path: 'all-todo',
+      },
+    },
+  ],
+}

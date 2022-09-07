@@ -7,10 +7,10 @@
  */
 
 
- const getAllData = async (model:any) => {
+ const getAllItems = async (model:any) => {
     return await model.findAndCountAll()
   
   };
   
-  export default getAllData;
+  export default getAllItems;
   

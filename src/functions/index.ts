@@ -1,2 +1,2 @@
 // export { default as hello } from './hello';
-export { createTodo} from './lambdas'
+export { createTodo,getTodo} from './lambdas'
