@@ -6,8 +6,10 @@ import { middyfy } from "@libs/lambda";
 import { APIGatewayEvent } from "aws-lambda";
 
 /**
- * Its a demos
+ * Its a demos for create item.
  *
+ * @params {function} events
+ * 
  * @returns {string}
  */
 

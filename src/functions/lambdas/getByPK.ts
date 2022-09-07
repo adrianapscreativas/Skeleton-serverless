@@ -10,10 +10,10 @@ import TodoModel from "database/models/TodoModel";
  *
  * @returns {string}
  */
-const get: ValidatedEventAPIGatewayProxyEvent<APIGatewayEvent> = async () => {
-console.log(typeof TodoModel , "mira el tipo");
+const get: ValidatedEventAPIGatewayProxyEvent<APIGatewayEvent> = async (event) => {
+    const { id } = event.pathParameters;
 
-const rerieveData = await getTodoController(TodoModel);
+const rerieveData = await getTodoController(TodoModel,id);
 
   return formatJSONResponse({
     success: true,
